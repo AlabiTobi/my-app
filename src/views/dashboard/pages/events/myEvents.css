@@ -67,6 +67,7 @@
     contain: content;
     display: flex;
     margin-right: 2em;
+    margin-bottom: 20px;
 }
 
 .event-actions{
