@@ -1,7 +1,7 @@
 import React from 'react'
 import Input from "../../components/reusables/Input"
-import emailIcon from "../../assets/email.svg"
-import passwordIcon from "../../assets/password.svg"
+// import emailIcon from "../../assets/email.svg"
+// import passwordIcon from "../../assets/password.svg"
 import "./authentication.css"
 import { useState } from "react"
 import { useNavigate} from "react-router-dom"
@@ -26,12 +26,12 @@ const Login = () => {
         }
         
     const handleClick = () => {
+        // eslint-disable-next-line
         axios.get(`http://localhost:5000/accounts/?email=${userInput["email"]}`).
         then((result)=> {
           
             result.data[0].Password === userInput["password"] && navigate("/dashboard")  
-        }).
-        catch((error) => console.log(error))
+        }).catch((error) => console.log(error))
     }
 
     const checkIfFieldIsEmpty = (e) => {
@@ -71,24 +71,21 @@ const Login = () => {
                     }
                 })
             }
+            break 
             default:
-                    break;
         } 
         if(e.target.value === "") return true
     }
 
-    const checkIfIsEmail = () => {
-
-    }
 
 return (
 <div className="authenticationContainer">
     <div className="leftSide">
         <div className="leftSide-container">
         Don't Have an account?
-            <a onclick={()=>navigate("/register")}>
+            <a onClick={()=>navigate("/register")} href='/register'>
                 
-                <a href="{Register}">
+                <a href="/register">
                 <span style={{
                             color: 'var(--primary_green)',
                             marginLeft: '4px'
@@ -103,14 +100,14 @@ return (
                     aimed at helping you facilitate and run a smooth event</p>
             </div>
             <div className="input-button-fields">
-                <Input text="email" handleChange= {handleChange}icon={emailIcon} label="email" fieldError={fieldError} />
-                <Input text="password" handleChange= {handleChange}icon={passwordIcon} label="password" fieldError={fieldError} />
+                <Input text="email" handleChange= {handleChange} label="email" fieldError={fieldError} />
+                <Input text="password" handleChange= {handleChange} label="password" fieldError={fieldError} />
                 
                 <button className="authentication-button" onClick={handleClick}>Get Into Norbs</button>
             </div>
 
             <div className="social-media">
-                <a>
+                <a href='{}'>
                 <div className="social-media-icon"></div>
                 </a>
 

@@ -1,9 +1,9 @@
 import React from 'react'
 import Input from '../../components/reusables/Input'
-import emailIcon from '../../assets/email.svg'
-import passwordIcon from '../../assets/password.svg'
-import phoneIcon from '../../assets/phone.svg'
-import userIcon from '../../assets/user.svg'
+// import emailIcon from '../../assets/email.svg'
+// import passwordIcon from '../../assets/password.svg'
+// import phoneIcon from '../../assets/phone.svg'
+// import userIcon from '../../assets/user.svg'
 import './authentication.css'
 import { useState } from "react"
 import StepContainer from '../../components/authentication/register/StepContainer'
@@ -33,9 +33,9 @@ const Register = () => {
         }
         
     const handleClick = () => {
-        axios.post("http://localhost:5000/accounts", userInput).
-        then((data)=> console.log(data)).
-        catch((error) => console.log(error))
+        axios.post("http://localhost:5000/accounts", userInput)
+        .then((data)=> console.log(data))
+        .catch((error) => console.log(error))
     }
 
     const checkIfFieldIsEmpty = (e) => {
@@ -76,8 +76,9 @@ const Register = () => {
                     }
                 })
             }
+            break;
             default:
-                break;
+                
         } 
         if(e.target.value === "") return true
     }
@@ -89,7 +90,7 @@ return (
     <div className="leftSide">
         <div className="leftSide-container">
         Have an account?
-        <a onClick={()=>navigate("/login")}>
+        <a href='/login' onClick={()=>navigate("/login")}>
                 
                   <span style={{
                         color: 'var(--primary_green)',
@@ -106,15 +107,15 @@ return (
             </div>
             
                 {step === 1 && <StepContainer step={1} headerTitle="Let's know you">
-                <Input text="text" handleChange= {handleChange}icon={userIcon} label="FirstName" fieldError={fieldError} />
-                <Input text="text" handleChange= {handleChange}icon={userIcon} label="LastName" fieldError={fieldError} />
-                <Input text="text" handleChange= {handleChange}icon={emailIcon} label="Email" fieldError={fieldError} /> 
+                <Input text="text" handleChange= {handleChange} label="FirstName" fieldError={fieldError} />
+                <Input text="text" handleChange= {handleChange} label="LastName" fieldError={fieldError} />
+                <Input text="text" handleChange= {handleChange} label="Email" fieldError={fieldError} /> 
                 </StepContainer>}
 
                 {step === 2 && <StepContainer step={2} headerTitle="Let's Secure you">
-                <Input text="text" handleChange= {handleChange}icon={phoneIcon} label="PhoneNumber" fieldError={fieldError} />
-                <Input text="text" handleChange= {handleChange}icon={passwordIcon} label="Password" fieldError={fieldError} />
-                <Input text="text" handleChange= {handleChange}icon={passwordIcon} label="ConfirmPassword" fieldError={fieldError} /> 
+                <Input text="text" handleChange= {handleChange} label="PhoneNumber" fieldError={fieldError} />
+                <Input text="text" handleChange= {handleChange} label="Password" fieldError={fieldError} />
+                <Input text="text" handleChange= {handleChange} label="ConfirmPassword" fieldError={fieldError} /> 
                 </StepContainer>}
 
                   {step ===1 &&  
@@ -135,7 +136,7 @@ return (
             
 
             <div className="social-media">
-                <a>
+                <a href='{}'>
                     <div className="social-media-icon"></div>
                 </a>
 
